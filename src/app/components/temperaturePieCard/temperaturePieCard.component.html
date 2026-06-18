@@ -1,0 +1,23 @@
+<div class="temp-pie-card">
+  <!-- 卡片標頭 -->
+  <div class="temp-pie-card__header">
+    <div class="temp-pie-card__info">
+      <span class="temp-pie-card__icon-wrap">
+        <img [src]="iconSrc" alt="溫度" class="temp-pie-card__icon" />
+      </span>
+      <div class="temp-pie-card__meta">
+        <p class="paragraph-body-m temp-pie-card__title">{{ title }}</p>
+        <p class="paragraph-caption-r temp-pie-card__updated">更新時間：{{ updatedAt }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECharts 圓餅圖 -->
+  <div class="temp-pie-card__chart">
+    <div
+      echarts
+      [options]="chartOptions"
+      class="temp-pie-card__echarts"
+    ></div>
+  </div>
+</div>

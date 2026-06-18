@@ -1,0 +1,181 @@
+.dashboard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  min-width: 1366px;
+  min-height: 768px;
+  overflow: hidden;
+  font-family: var(--font-family-base);
+
+  /* ===== Header：浮在最上層 ===== */
+  app-header {
+    position: relative;
+    flex-shrink: 0;
+    height: 72px;
+    z-index: 10;
+  }
+
+  /* ===== 地圖：header 下方全螢幕，最底層 ===== */
+  &__map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  /* ===== 主內容區：疊在地圖上，空白處穿透給地圖 ===== */
+  &__body {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* Sider 需要恢復滑鼠事件 */
+  app-sider {
+    pointer-events: auto;
+  }
+
+  /* ===== 右側整體區塊 ===== */
+  &__right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    pointer-events: none;
+  }
+
+  /* ===== 篩選列：恢復滑鼠事件 ===== */
+  &__filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 8px 12px;
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+
+  /* ===== nz-segmented 樣式覆蓋（對應 Figma Segmented / Segmented-item） ===== */
+  /* .dashboard__segmented 與 .ant-segmented 在同一個 host element 上，直接寫在此層 */
+  &__segmented {
+    background: var(--segmented-bg) !important;
+    border: 1px solid var(--segmented-border) !important;
+    border-radius: 999px !important;
+    padding: 4px !important;
+    box-shadow: none !important;
+
+    ::ng-deep .ant-segmented-group {
+      border-radius: 999px;
+    }
+
+    ::ng-deep .ant-segmented-thumb {
+      background: var(--segmented-item-active-bg) !important;
+      border-radius: 999px !important;
+      box-shadow: none !important;
+    }
+
+    ::ng-deep .ant-segmented-item {
+      border-radius: 999px !important;
+      color: var(--segmented-item-default-text);
+      transition: background 0.15s ease, color 0.15s ease;
+
+      &:hover:not(.ant-segmented-item-selected) {
+        color: var(--segmented-item-default-text);
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    ::ng-deep .ant-segmented-item-selected {
+      background: var(--segmented-item-active-bg) !important;
+      color: var(--segmented-item-active-text) !important;
+      box-shadow: none !important;
+    }
+
+    ::ng-deep .ant-segmented-item-label {
+      padding: 4px 12px !important;
+      min-height: unset !important;
+      line-height: normal !important;
+      font-family: var(--font-family-base);
+      font-size: var(--font-size-14);
+      font-weight: var(--font-weight-medium);
+    }
+  }
+
+  /* 編輯按鈕：圓角膠囊（radius-fill = 999px），對應 Figma Button 設計 */
+  &__edit-btn.ant-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--sizexxs, 4px);
+    padding: var(--sizexs, 8px) var(--sizesm, 12px);
+    height: auto;
+    background-color: var(--button-primary-bg);
+    border: 1px solid var(--button-primary-border);
+    border-radius: var(--radius-fill, 999px);
+    color: var(--button-primary-text);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+    line-height: normal;
+
+    &:hover {
+      background-color: var(--bg-dark-muted);
+    }
+  }
+
+  &__edit-icon {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+    flex-shrink: 0;
+  }
+
+  /* ===== Grid 覆蓋層（6欄 × 3列，填滿右側剩餘高度） ===== */
+  &__grid {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    /* 6 欄，與 Figma 設計稿一致 */
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    /* 3 列，高度自動填滿 */
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    padding: 12px;
+    overflow: hidden;
+    /* 空格子穿透，保留地圖互動 */
+    pointer-events: none;
+  }
+
+  /* 所有卡片為 Grid item，重新啟用滑鼠事件 */
+  &__card {
+    display: block;
+    pointer-events: auto;
+
+    /* Row 1, Col 1：溫度資訊 */
+    &--r1c1 { grid-column: 1; grid-row: 1; }
+
+    /* Row 2, Col 1：濕度資訊 */
+    &--r2c1 { grid-column: 1; grid-row: 2; }
+
+    /* Row 1, Col 6：風速資訊 */
+    &--r1c6 { grid-column: 6; grid-row: 1; }
+
+    /* Row 2, Col 6：AQI */
+    &--r2c6 { grid-column: 6; grid-row: 2; }
+
+    /* Row 3, Col 1–2：溫度趨勢分析 */
+    &--r3c1-2 { grid-column: 1 / span 2; grid-row: 3; }
+
+    /* Row 3, Col 3–4：PM2.5 趨勢分析 */
+    &--r3c3-4 { grid-column: 3 / span 2; grid-row: 3; }
+
+    /* Row 3, Col 5–6：風速趨勢分析 */
+    &--r3c5-6 { grid-column: 5 / span 2; grid-row: 3; }
+  }
+}

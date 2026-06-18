@@ -1,0 +1,159 @@
+.sider {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 8px 0;
+  flex-shrink: 0;
+  z-index: 10;
+
+  /* ===== 內側導覽面板 ===== */
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 64px;
+    height: 100%;
+    padding: 20px 0;
+    background-color: var(--sider-bg, white);
+    border-radius: 0 12px 12px 0;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    overflow: hidden;
+    transition: width 0.2s ease;
+  }
+
+  /* ===== 展開狀態 ===== */
+  &--expanded {
+    .sider__nav {
+      width: 200px;
+      align-items: flex-start;
+    }
+
+    .sider__menu-btn {
+      justify-content: flex-start;
+      padding: 0 18px;
+    }
+
+    .sider__item {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+  }
+
+  /* ===== 漢堡按鈕 ===== */
+  &__menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: var(--blue-gray-100, #dbe6ed);
+    }
+  }
+
+  &__menu-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  /* ===== 導覽項目 ===== */
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    padding: 0 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: var(--blue-gray-100, #dbe6ed);
+    }
+  }
+
+  /* ===== 圖示欄（圓圈 + 底點，flex column） ===== */
+  &__icon-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    /* Default icon color */
+    color: var(--text-primary, #1f2937);
+
+    /* Active icon color — 直接用 color 控制 */
+    &--active {
+      color: var(--lime-400, #DFFC24);
+    }
+  }
+
+  /* ===== 圖示圓圈 ===== */
+  &__icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background-color: var(--sider-icon-default-bg, #f0f2f4);
+    border: 1px solid var(--sider-icon-border, #dadfe8);
+    overflow: hidden;
+    flex-shrink: 0;
+
+    /* Active：深色背景、無邊框 */
+    .sider__icon-col--active & {
+      background-color: var(--sider-icon-active-bg, #303030);
+      border-color: transparent;
+    }
+  }
+
+  /* ===== 圖示本體（CSS mask，color 繼承自 icon-col） ===== */
+  &__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    /* mask-image 由 [style] binding 注入 */
+    background-color: currentColor;
+  }
+
+  /* ===== Active 底部指示圓點 ===== */
+  &__dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--sider-icon-dot, #809dae);
+    flex-shrink: 0;
+  }
+
+  /* ===== 展開時文字標籤 ===== */
+  &__label {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-14, 14px);
+    font-weight: var(--font-weight-regular, 400);
+    color: var(--text-primary, #1f2937);
+    white-space: nowrap;
+    line-height: normal;
+
+    &--active {
+      font-weight: var(--font-weight-medium, 500);
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<header class="header">
+  <!-- 背景圖層 -->
+  <div class="header__bg">
+    <img src="assets/header-bg.png" alt="" class="header__bg-img" />
+  </div>
+
+  <!-- 左側：Logo + 標題 + 頁籤標章 -->
+  <div class="header__left">
+    <img src="assets/logo.svg" alt="東勢-豐原生活圈快速道路" class="header__logo" />
+    <h1 class="header__title">東勢-豐原生活圈快速道路</h1>
+    <div class="header__badge">
+      <img src="assets/Icon-Dashboard.svg" alt="" class="header__badge-icon" />
+      <span class="paragraph-small-m">綜合監測儀表板</span>
+    </div>
+  </div>
+
+  <!-- 右側：使用者名稱 + 登出 -->
+  <div class="header__right">
+    <span class="header__username paragraph-large-r">{{ userName }}</span>
+    <button nz-button class="header__logout-btn" (click)="onLogout()">
+      登出
+    </button>
+  </div>
+</header>

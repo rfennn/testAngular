@@ -1,0 +1,51 @@
+<div class="aqi-card">
+
+  <!-- 標頭 -->
+  <div class="aqi-card__header">
+    <div class="aqi-card__info">
+      <span class="aqi-card__icon-wrap">
+        <img src="assets/Icon-smoke.svg" alt="空氣品質" class="aqi-card__icon" />
+      </span>
+      <div class="aqi-card__meta">
+        <p class="paragraph-body-m aqi-card__title">空氣品質指標資訊</p>
+        <p class="paragraph-caption-r aqi-card__updated">更新時間：{{ updatedAt }}</p>
+      </div>
+    </div>
+    <!-- 三點更多按鈕 -->
+    <app-card-menu-btn></app-card-menu-btn>
+  </div>
+
+  <!-- 數值區 + 指示條 -->
+  <div class="aqi-card__body">
+
+    <!-- 數值列：左邊 AQI 數字、右邊等級 Badge -->
+    <div class="aqi-card__value-row">
+      <span class="aqi-card__value">{{ aqiValue }}</span>
+      <!-- 等級 Badge：動態背景色與文字色由 aqiLevelIndex 決定 -->
+      <span
+        class="aqi-card__badge paragraph-caption-m"
+        [style.background-color]="badgeBg"
+        [style.color]="badgeText"
+      >{{ aqiLevelText }}</span>
+    </div>
+
+    <!-- AQI 等級指示條 -->
+    <div class="aqi-card__indicator">
+      <div class="aqi-card__bar">
+        @for (level of levels; track level.label; let i = $index) {
+          <div
+            class="aqi-card__segment"
+            [class.aqi-card__segment--active]="i === aqiLevelIndex"
+            [style.background-color]="segmentColor(i)"
+          ></div>
+        }
+      </div>
+      <div class="aqi-card__bar-labels">
+        @for (level of levels; track level.label) {
+          <span class="paragraph-caption-r aqi-card__bar-label">{{ level.label }}</span>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

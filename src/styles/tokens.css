@@ -1,0 +1,166 @@
+/* =============================================
+   Design Tokens — 東勢-豐原環境監測專案
+   來源：Figma Design System
+   ============================================= */
+
+:root {
+
+  /* --- Color Tokens --- */
+  --shadow-card: #00000033;
+  --brand-bg: #dbe6ed;
+  --brand-light: #b5ccd8;
+  --button-ghost-text: #809dae;
+  --border-brand: #809dae;
+  --sider-icon-dot: #809dae;
+  --segmented-bg: #809dae;
+  --map-filter-bg: #809dae;
+  --input-border-focus: #809dae;
+  --input-icon: #435e6d;
+  --brand-darker: #324a56;
+  --bg-dark-muted: #243540;
+  --button-disabled-bg: #f9fafb;
+  --table-header-bg: #f9fafb;
+  --surface-raised: #f9fafb;
+  --input-bg-disable: #f9fafb;
+  --sider-icon-default-bg: #f3f4f6;
+  --input-bg: #f3f4f6;
+  --tab-tag-bg: #f3f4f6;
+  --table-row-alt-bg: #f3f4f6;
+  --sider-icon-border: #dadfe8;
+  --tab-border: #dadfe8;
+  --table-border: #dadfe8;
+  --button-disabled-text: #C3C8D0;
+  --header-badge-border: #C3C8D0;
+  --input-border: #C3C8D0;
+  --input-placeholder: #9ca3af;
+  --table-text-muted: #9ca3af;
+  --tab-number: #6b7280;
+  --border-strong: #4b5563;
+  /* Figma Text Color Aliases */
+  --text-primary:   #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted:     #9ca3af;
+
+  --header-body-text: #1f2937;
+  --segmented-item-active-text: #1f2937;
+  --button-secondary-text: #1f2937;
+  --input-text: #1f2937;
+  --tab-text: #1f2937;
+  --table-text: #1f2937;
+  --sider-icon-active-bg: #303030;
+  --button-primary-bg: #303030;
+  --surface-dark: #303030;
+  --lime-400: #DFFC24;
+  --card-icon-bg: #dffc24;
+  --button-secondary-bg: #dffc24;
+  --header-bg: #ffffff;
+  --header-title: #ffffff;
+  --segmented-item-default-text: #ffffff;
+  --button-primary-text: #ffffff;
+  --tab-text-white: #ffffff;
+  --segmented-border: #ffffff;
+  --card-border: #ffffff;
+  --button-primary-border: #ffffff;
+  --sider-bg: #ffffff;
+  --segmented-item-active-bg: #ffffff;
+  --table-row-bg: #ffffff;
+  --bg-overlay: #ffffff4d;
+  --card-bg: #ffffff80;
+  --map-overlay-bg: #ffffff80;
+  --category-slate: #6b8579;
+  --category-steel: #9bafc2;
+  --category-taupe: #b8a89c;
+  --category-mauve: #8a7a8c;
+  --category-warm-gray: #9b8b7a;
+  --category-sand: #cba16a;
+
+  /* --- Level Tokens --- */
+  --level-gray-1: #dadfe8;
+  --level-gray-2: #d1d5db;
+  --level-gray-3: #9ca3af;
+  --level-gray-4: #6b7280;
+  --level-gray-5: #4b5563;
+  --level-gray-6: #374151;
+  --level-heat-0-color: #a8c896;
+  --level-heat-0-soft: #e8f0e0;
+  --level-heat-0-strong: #5c7048;
+  --level-heat-1-color: #e8c870;
+  --level-heat-1-soft: #faf1d9;
+  --level-heat-1-strong: #876c2e;
+  --level-heat-2-color: #e89f6a;
+  --level-heat-2-soft: #fae4d5;
+  --level-heat-2-strong: #8c4e2a;
+  --level-heat-3-color: #e07060;
+  --level-heat-3-soft: #fae2dc;
+  --level-heat-3-strong: #a8453a;
+  --level-heat-4-color: #a8453a;
+  --level-heat-4-soft: #f0d5d0;
+  --level-heat-4-strong: #6e2620;
+  --level-aqi-1-color: #88b8d0;
+  --level-aqi-1-soft: #cde0ed;
+  --level-aqi-1-strong: #3d6680;
+  --level-aqi-2-color: #a8c896;
+  --level-aqi-2-soft: #e8f0e0;
+  --level-aqi-2-strong: #5c7048;
+  --level-aqi-3-color: #e8c870;
+  --level-aqi-3-soft: #faf1d9;
+  --level-aqi-3-strong: #876c2e;
+  --level-aqi-4-color: #e07060;
+  --level-aqi-4-soft: #fae2dc;
+  --level-aqi-4-strong: #a8453a;
+  --level-aqi-5-color: #b088c2;
+  --level-aqi-5-soft: #ebe0f0;
+  --level-aqi-5-strong: #5e3d70;
+  --level-aqi-6-color: #a8453a;
+  --level-aqi-6-soft: #f0d5d0;
+  --level-aqi-6-strong: #6e2620;
+
+  /* --- Typography Tokens --- */
+  --font-family-base: "Noto Sans CJK TC", sans-serif;
+  --font-family-number: "Oswald", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
+  --font-size-40: 40px;
+  --font-size-48: 48px;
+  --font-size-56: 56px;
+  --font-size-64: 64px;
+  --line-height-12: 12px;
+  --line-height-14: 14px;
+  --line-height-28: 28px;
+  --line-height-38: 38px;
+  --line-height-48: 48px;
+  --line-height-58: 58px;
+  --line-height-68: 68px;
+  --line-height-76: 76px;
+}
+
+/* --- Title styles (全部 Medium) --- */
+.title-display1 { font-family: var(--font-family-base); font-size: var(--font-size-64); font-weight: var(--font-weight-medium); line-height: var(--line-height-76); }
+h1 { font-family: var(--font-family-base); font-size: var(--font-size-56); font-weight: var(--font-weight-medium); line-height: var(--line-height-68); }
+h2 { font-family: var(--font-family-base); font-size: var(--font-size-48); font-weight: var(--font-weight-medium); line-height: var(--line-height-58); }
+h3 { font-family: var(--font-family-base); font-size: var(--font-size-40); font-weight: var(--font-weight-medium); line-height: var(--line-height-48); }
+h4 { font-family: var(--font-family-base); font-size: var(--font-size-32); font-weight: var(--font-weight-medium); line-height: var(--line-height-38); }
+h5 { font-family: var(--font-family-base); font-size: var(--font-size-24); font-weight: var(--font-weight-medium); line-height: var(--line-height-28); }
+h6 { font-family: var(--font-family-base); font-size: var(--font-size-20); font-weight: var(--font-weight-medium); line-height: var(--line-height-28); }
+
+/* --- Paragraph styles --- */
+.paragraph-lead-m    { font-size: var(--font-size-20); font-weight: var(--font-weight-medium);  line-height: normal; }
+.paragraph-lead-r    { font-size: var(--font-size-20); font-weight: var(--font-weight-regular); line-height: normal; }
+.paragraph-large-m   { font-size: var(--font-size-18); font-weight: var(--font-weight-medium);  line-height: normal; }
+.paragraph-large-r   { font-size: var(--font-size-18); font-weight: var(--font-weight-regular); line-height: normal; }
+.paragraph-body-m    { font-size: var(--font-size-16); font-weight: var(--font-weight-medium);  line-height: normal; }
+.paragraph-body-r    { font-size: var(--font-size-16); font-weight: var(--font-weight-regular); line-height: normal; }
+.paragraph-small-m   { font-size: var(--font-size-14); font-weight: var(--font-weight-medium);  line-height: normal; }
+.paragraph-small-r   { font-size: var(--font-size-14); font-weight: var(--font-weight-regular); line-height: normal; }
+.paragraph-caption-m { font-size: var(--font-size-12); font-weight: var(--font-weight-medium);  line-height: var(--line-height-14); }
+.paragraph-caption-r { font-size: var(--font-size-12); font-weight: var(--font-weight-regular); line-height: var(--line-height-14); }
+.paragraph-overline-m { font-size: var(--font-size-10); font-weight: var(--font-weight-medium);  line-height: var(--line-height-12); }
+.paragraph-overline-r { font-size: var(--font-size-10); font-weight: var(--font-weight-regular); line-height: var(--line-height-12); }

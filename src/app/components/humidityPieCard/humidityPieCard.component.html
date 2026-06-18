@@ -1,0 +1,30 @@
+<div class="humidity-pie-card">
+
+  <!-- 卡片標頭 -->
+  <div class="humidity-pie-card__header">
+    <div class="humidity-pie-card__info">
+      <span class="humidity-pie-card__icon-wrap">
+        <img [src]="iconSrc" alt="濕度" class="humidity-pie-card__icon" />
+      </span>
+      <div class="humidity-pie-card__meta">
+        <p class="paragraph-body-m humidity-pie-card__title">{{ title }}</p>
+        <p class="paragraph-caption-r humidity-pie-card__updated">更新時間：{{ updatedAt }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECharts 環形圓餅圖 + HTML overlay 數值 -->
+  <div class="humidity-pie-card__chart">
+    <div
+      echarts
+      [options]="chartOptions"
+      class="humidity-pie-card__echarts"
+    ></div>
+    <!-- 數值 overlay：CSS 控制對齊，不受 ECharts canvas 限制 -->
+    <div class="humidity-pie-card__overlay">
+      <span class="humidity-pie-card__value">{{ value }}</span>
+      <span class="humidity-pie-card__unit">{{ unit }}</span>
+    </div>
+  </div>
+
+</div>

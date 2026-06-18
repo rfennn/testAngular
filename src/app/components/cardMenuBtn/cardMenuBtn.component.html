@@ -1,0 +1,33 @@
+<button
+  class="card-menu-btn__trigger"
+  type="button"
+  aria-label="更多選項"
+  nz-dropdown
+  [nzDropdownMenu]="menu"
+  nzTrigger="click"
+  nzPlacement="bottomRight"
+  nzOverlayClassName="card-menu-overlay"
+>
+  <span class="card-menu-btn__dots-icon"></span>
+</button>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <div class="card-menu-panel">
+    <button class="card-menu-panel__item" type="button">
+      <span class="card-menu-icon card-menu-icon--zoom"></span>
+      <span>放大檢視</span>
+    </button>
+    <button class="card-menu-panel__item" type="button">
+      <span class="card-menu-icon card-menu-icon--download"></span>
+      <span>圖片下載</span>
+    </button>
+    <button class="card-menu-panel__item" type="button">
+      <span class="card-menu-icon card-menu-icon--file"></span>
+      <span>詳細資料</span>
+    </button>
+    <button class="card-menu-panel__item" type="button">
+      <span class="card-menu-icon card-menu-icon--info"></span>
+      <span>小幫手</span>
+    </button>
+  </div>
+</nz-dropdown-menu>

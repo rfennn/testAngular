@@ -1,0 +1,107 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  padding: 0 24px;
+  overflow: hidden;
+  z-index: 100;
+
+  /* 背景圖 */
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* 左側區塊 */
+  &__left {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  &__logo {
+    height: 48px;
+    width: 62px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    /* 使用 Swei Marker Sans CJK TC Bold 仿 Figma 設計 */
+    font-family: "Swei Marker Sans CJK TC", "Noto Sans CJK TC", sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 5.1px;
+    color: var(--header-title);
+    text-shadow: 0 0 7px #435e6d;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  /* 頁籤標章（綜合監測儀表板） */
+  &__badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--level-gray-2);
+    border-radius: 999px;
+    background: linear-gradient(179.56deg, #ffffff 1.68%, #dedede 157.1%);
+    flex-shrink: 0;
+    color: var(--tab-text);
+  }
+
+  &__badge-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  /* 右側區塊 */
+  &__right {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__username {
+    color: var(--header-body-text);
+    white-space: nowrap;
+  }
+
+  /* 登出按鈕（使用 ng-zorro 覆寫樣式） */
+  &__logout-btn.ant-btn {
+    height: 32px;
+    padding: 0 16px;
+    background-color: var(--brand-bg);
+    border: 1px solid var(--segmented-border);
+    border-radius: 8px;
+    color: var(--tab-number);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-medium);
+
+    &:hover {
+      background-color: var(--brand-light);
+    }
+  }
+}

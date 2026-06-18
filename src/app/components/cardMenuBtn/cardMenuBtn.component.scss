@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  flex-shrink: 0;
+}
+
+.card-menu-btn__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 999px;
+  color: var(--table-text, #374151);
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+}
+
+.card-menu-btn__dots-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  mask-image: url('/assets/Icon-Dots.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('/assets/Icon-Dots.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}

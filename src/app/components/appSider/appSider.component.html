@@ -1,0 +1,38 @@
+<aside class="sider" [class.sider--expanded]="isExpanded()">
+  <nav class="sider__nav">
+
+    <!-- 漢堡選單按鈕（切換收合 / 展開） -->
+    <button class="sider__menu-btn" (click)="toggleSider()" aria-label="切換選單">
+      <img src="assets/Icon-Menu.svg" alt="" class="sider__menu-icon" />
+    </button>
+
+    <!-- 導覽項目 -->
+    @for (item of navItems; track item.label) {
+      <button
+        class="sider__item"
+        [class.sider__item--active]="item.active"
+        [attr.aria-label]="item.label"
+        [attr.title]="item.label"
+      >
+        <!-- 圖示欄：圓圈 + active 底部小圓點 -->
+        <span class="sider__icon-col" [class.sider__icon-col--active]="item.active">
+          <span class="sider__icon-circle">
+            <!-- mask 技術：以 SVG 形狀為遮罩，color 控制填色 -->
+            <span class="sider__icon" [style]="getMaskStyle(item.icon)"></span>
+          </span>
+          @if (item.active) {
+            <span class="sider__dot"></span>
+          }
+        </span>
+
+        <!-- 展開時顯示文字標籤 -->
+        @if (isExpanded()) {
+          <span class="sider__label" [class.sider__label--active]="item.active">
+            {{ item.label }}
+          </span>
+        }
+      </button>
+    }
+
+  </nav>
+</aside>

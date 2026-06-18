@@ -1,0 +1,54 @@
+<div class="sensor-card" [class.sensor-card--center]="layout === 'center'">
+
+  <!-- 卡片標頭 -->
+  <div class="sensor-card__header">
+    <div class="sensor-card__info">
+      <span class="sensor-card__icon-wrap">
+        <img [src]="iconSrc" [alt]="title" class="sensor-card__icon" />
+      </span>
+      <div class="sensor-card__meta">
+        <p class="paragraph-body-m sensor-card__title">{{ title }}</p>
+        <p class="paragraph-caption-r sensor-card__updated">更新時間：{{ updatedAt }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== row 排版：標籤左、數值右（溫度資訊） ===== -->
+  @if (layout === 'row') {
+    <div class="sensor-card__data">
+
+      <!-- 第一行：標籤 + 數值 -->
+      <div class="sensor-card__info-row">
+        <p class="sensor-card__label">{{ primaryLabel }}</p>
+        <div class="sensor-card__value-container">
+          <span class="sensor-card__value sensor-card__value--h3">{{ primaryValue }}</span>
+          <span class="sensor-card__unit">{{ primaryUnit }}</span>
+        </div>
+      </div>
+
+      <!-- 分隔線 + 第二行（選填） -->
+      @if (secondaryValue !== null) {
+        <div class="sensor-card__divider"></div>
+        <div class="sensor-card__info-row">
+          <p class="sensor-card__label">{{ secondaryLabel }}</p>
+          <div class="sensor-card__value-container">
+            <span class="sensor-card__value sensor-card__value--h3">{{ secondaryValue }}</span>
+            <span class="sensor-card__unit">{{ secondaryUnit }}</span>
+          </div>
+        </div>
+      }
+
+    </div>
+  }
+
+  <!-- ===== center 排版：數值置中（風速資訊） ===== -->
+  @if (layout === 'center') {
+    <div class="sensor-card__center">
+      <div class="sensor-card__value-container">
+        <span class="sensor-card__value" [class]="'sensor-card__value--' + primaryValueSize">{{ primaryValue }}</span>
+        <span class="sensor-card__unit">{{ primaryUnit }}</span>
+      </div>
+    </div>
+  }
+
+</div>

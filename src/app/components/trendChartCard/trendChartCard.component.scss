@@ -1,0 +1,79 @@
+.trend-card {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(2.5px);
+  background: linear-gradient(103.44deg, rgba(225, 233, 244, 0.64) 0%, rgba(255, 255, 255, 0.72) 47.2%, rgba(225, 233, 244, 0.64) 100.17%);
+  box-shadow: 0 2px 20px 0 var(--shadow-card);
+  overflow: hidden;
+
+  /* 標頭 */
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background-color: var(--card-icon-bg);
+    flex-shrink: 0;
+    padding: 4px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__title {
+    color: var(--table-text);
+    margin: 0;
+  }
+
+  &__updated {
+    color: var(--input-placeholder);
+    margin: 0;
+  }
+
+  /* 圖表區 */
+  &__chart {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    position: relative;
+  }
+
+  &__echarts {
+    width: 100%;
+    height: 100%;
+  }
+}

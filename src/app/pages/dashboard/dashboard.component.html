@@ -1,0 +1,131 @@
+<div class="dashboard">
+
+  <!-- ===== Header ===== -->
+  <app-header></app-header>
+
+  <!-- ===== Mapbox 地圖（最底層，header 下方全螢幕） ===== -->
+  <app-map-view class="dashboard__map"></app-map-view>
+
+  <!-- ===== 主內容區（Sider + 右側），疊在地圖上方 ===== -->
+  <div class="dashboard__body">
+
+    <!-- 左側側欄 -->
+    <app-sider></app-sider>
+
+    <!-- 右側內容 -->
+    <div class="dashboard__right">
+
+      <!-- 篩選列：即時 / 歷史 + 編輯按鈕 -->
+      <div class="dashboard__filter-bar">
+        <nz-segmented
+          class="dashboard__segmented"
+          [nzOptions]="timeModeOptions"
+          [ngModel]="timeMode()"
+          (ngModelChange)="onTimeModeChange($event)"
+        ></nz-segmented>
+
+        <button nz-button class="dashboard__edit-btn" aria-label="編輯">
+          <img src="assets/Icon-Pencil.svg" alt="" class="dashboard__edit-icon" />
+          <span class="paragraph-small-r">編輯</span>
+        </button>
+      </div>
+
+      <!-- ===== Grid 覆蓋層（6欄 × 3列，與 Figma 完全一致） ===== -->
+      <div class="dashboard__grid">
+
+          <!-- Row 1, Col 1：溫度資訊（標籤左、數值右 / row 排版） -->
+          <app-sensor-card
+            class="dashboard__card dashboard__card--r1c1"
+            title="溫度資訊"
+            [updatedAt]="updatedAt"
+            iconType="temperature"
+            primaryLabel="即時溫度"
+            [primaryValue]="30.8"
+            primaryUnit="℃"
+            secondaryLabel="即時熱指數"
+            [secondaryValue]="32.4"
+            secondaryUnit="℃"
+            layout="row"
+          ></app-sensor-card>
+
+          <!-- Row 2, Col 1：濕度資訊（ECharts 環形圓餅圖） -->
+          <app-humidity-pie-card
+            class="dashboard__card dashboard__card--r2c1"
+            title="濕度資訊"
+            [updatedAt]="updatedAt"
+            [value]="66"
+            unit="%"
+          ></app-humidity-pie-card>
+
+          <!-- Row 1, Col 6：風速資訊（數值置中 / center 排版，Display-1 64px） -->
+          <app-sensor-card
+            class="dashboard__card dashboard__card--r1c6"
+            title="風速資訊"
+            [updatedAt]="updatedAt"
+            iconType="wind"
+            primaryLabel=""
+            primaryValue="1.0"
+            primaryUnit="m/s"
+            layout="center"
+            primaryValueSize="display1"
+          ></app-sensor-card>
+
+          <!-- Row 2, Col 6：空氣品質指標（數值左、等級 Badge 右） -->
+          <app-aqi-card
+            class="dashboard__card dashboard__card--r2c6"
+            [updatedAt]="updatedAt"
+            [aqiValue]="104"
+            aqiLevelText="普通"
+            [aqiLevelIndex]="1"
+          ></app-aqi-card>
+
+          <!-- Row 3, Col 1–2：濕度趨勢分析（Y: 0–100 %） -->
+          <app-trend-chart-card
+            class="dashboard__card dashboard__card--r3c1-2"
+            title="濕度趨勢分析"
+            [updatedAt]="updatedAt"
+            iconType="water"
+            yAxisUnit="%"
+            [xAxisLabels]="xAxisLabels"
+            xAxisTitle="時"
+            [yAxisMin]="0"
+            [yAxisMax]="100"
+            [yAxisInterval]="50"
+            [series]="humidityTrendSeries"
+          ></app-trend-chart-card>
+
+          <!-- Row 3, Col 3–4：PM2.5 濃度趨勢分析（Y: 0–40 ug/m3） -->
+          <app-trend-chart-card
+            class="dashboard__card dashboard__card--r3c3-4"
+            title="PM2.5 濃度趨勢分析"
+            [updatedAt]="updatedAt"
+            iconType="smoke"
+            yAxisUnit="ug/m3"
+            [xAxisLabels]="xAxisLabels"
+            xAxisTitle="時"
+            [yAxisMin]="0"
+            [yAxisMax]="40"
+            [yAxisInterval]="10"
+            [series]="pm25TrendSeries"
+          ></app-trend-chart-card>
+
+          <!-- Row 3, Col 5–6：風速趨勢分析（Y: 20–30 m/s） -->
+          <app-trend-chart-card
+            class="dashboard__card dashboard__card--r3c5-6"
+            title="風速趨勢分析"
+            [updatedAt]="updatedAt"
+            iconType="wind"
+            yAxisUnit="m/s"
+            [xAxisLabels]="xAxisLabels"
+            xAxisTitle="時"
+            [yAxisMin]="20"
+            [yAxisMax]="30"
+            [yAxisInterval]="5"
+            [series]="windTrendSeries"
+          ></app-trend-chart-card>
+
+      </div>
+    </div>
+  </div>
+
+</div>

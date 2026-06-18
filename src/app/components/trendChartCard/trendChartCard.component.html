@@ -1,0 +1,25 @@
+<div class="trend-card">
+  <!-- 標頭 -->
+  <div class="trend-card__header">
+    <div class="trend-card__info">
+      <span class="trend-card__icon-wrap">
+        <img [src]="iconSrc" [alt]="title" class="trend-card__icon" />
+      </span>
+      <div class="trend-card__meta">
+        <p class="paragraph-body-m trend-card__title">{{ title }}</p>
+        <p class="paragraph-caption-r trend-card__updated">更新時間：{{ updatedAt }}</p>
+      </div>
+    </div>
+    <!-- 三點更多按鈕 -->
+    <app-card-menu-btn></app-card-menu-btn>
+  </div>
+
+  <!-- ECharts 趨勢圖 -->
+  <div class="trend-card__chart">
+    <div
+      echarts
+      [options]="chartOptions"
+      class="trend-card__echarts"
+    ></div>
+  </div>
+</div>

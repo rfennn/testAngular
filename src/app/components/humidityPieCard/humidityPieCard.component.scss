@@ -1,0 +1,112 @@
+.humidity-pie-card {
+  width: 100%;
+  height: 100%;
+  padding: var(--sizexs, 8px);
+  display: flex;
+  flex-direction: column;
+  /* header 靠上，圖表填滿剩餘空間，整體垂直 gap 對應設計稿 sizelg */
+  gap: var(--sizelg, 24px);
+  border-radius: var(--radius-8, 8px);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(2.5px);
+  background: linear-gradient(
+    96.55deg,
+    rgba(225, 233, 244, 0.64) 0%,
+    rgba(255, 255, 255, 0.72) 47.2%,
+    rgba(225, 233, 244, 0.64) 100.17%
+  );
+  box-shadow: 0 2px 20px 0 var(--shadow-card);
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /* ===== 標頭 ===== */
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sizexs, 8px);
+  }
+
+  /* 圓形黃底圖示容器 */
+  &__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-fill, 999px);
+    background-color: var(--card-icon-bg);
+    flex-shrink: 0;
+    padding: var(--sizexxs, 4px);
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__title {
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  &__updated {
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* ===== 圖表區域 ===== */
+  &__chart {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    position: relative;
+  }
+
+  &__echarts {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 數值 overlay：絕對定位於圓環中心 */
+  &__overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+
+  /* 數值數字：Number/H2 — 48px Oswald Medium */
+  &__value {
+    font-family: var(--font-family-number, 'Oswald', sans-serif);
+    font-size: var(--font-size-48, 48px);
+    font-weight: var(--font-weight-medium, 500);
+    line-height: 1;
+    color: var(--text-primary, #1f2937);
+  }
+
+  /* 單位：Paragraph/Overline — 10px Regular，底部對齊 */
+  &__unit {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-10, 10px);
+    font-weight: var(--font-weight-regular, 400);
+    color: var(--text-primary, #1f2937);
+    padding-bottom: 3px;
+  }
+}
